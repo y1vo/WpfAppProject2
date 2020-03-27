@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,6 +42,17 @@ namespace WpfAppProject2
             WindowSaveInFormat window = new WindowSaveInFormat();
             this.Close();
             window.Show();
+        }
+        private void BtnAddPic_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "Image Files(*.BMP; *.JPG; *.PNG; *.JPEG)|*.BMP; *.JPG; *.PNG; *.JPEG)| All files (*.*)|*.*";
+            if (openFile.ShowDialog() == true)
+            {
+                string str = openFile.FileName;
+                img1.Source = new BitmapImage(new Uri(str));
+            }
+
         }
     }
 }

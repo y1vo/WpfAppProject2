@@ -82,7 +82,8 @@
         <Button x:Name="btnBack" Grid.Column="0" Grid.Row="22"  Content="Back" FontSize="14" Click="BtnBack_Click"></Button>
         <Button x:Name="btnNext" Grid.ColumnSpan="4" Grid.Column="9" Grid.Row="22" Content="Next" FontSize="14" Click="BtnNext_Click"></Button>
         <Button x:Name="btnClose" Grid.Column="4" Grid.Row="22"  Content="Close" FontSize="14" Click="BtnClose_Click"></Button>
-        <Image Grid.ColumnSpan="2" Grid.Column="7"  Height="143" Margin="0.2,25,-0.4,0" Grid.Row="1" Grid.RowSpan="5" VerticalAlignment="Top" Width="137"/>
 
+        <Image  x:Name="img1" Grid.ColumnSpan="2" Grid.Column="7"  Height="143" Margin="0.2,25,-0.4,0" Grid.Row="1" Grid.RowSpan="5" VerticalAlignment="Top" Width="137"/>
+        <Button  x:Name="btnAddPic" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Content="Добавить картинку" Click="BtnAddPic_Click"></Button>
     </Grid>
 </Window>
