@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace WpfAppProject2
     /// </summary>
     public partial class WindowT1 : Window
     {
-        private ActiveStage activeStage = new ActiveStage(); 
+        private ActiveStage activeStage = new ActiveStage();
         public WindowT1()
         {
             InitializeComponent();
@@ -47,8 +48,8 @@ namespace WpfAppProject2
             MainWindow mainWindow = new MainWindow();
 
             File.Delete(activeStage.FilePath);
-            if (!File.Exists(activeStage.FilePath)) 
-            { 
+            if (!File.Exists(activeStage.FilePath))
+            {
                 mainWindow.Show();
             }
         }
@@ -62,7 +63,18 @@ namespace WpfAppProject2
 
         public override string ToString()
         {
-            return "ФИО: " + txtBox1;
+            return "ФИО: " + fullname;
+        }
+
+        private void BtnAddPic_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "Image Files(*.BMP; *.JPG; *.PNG; *.JPEG)|*.BMP; *.JPG; *.PNG; *.JPEG)| All files (*.*)|*.*";
+            if (openFile.ShowDialog() == true)
+            {
+                string str = openFile.FileName;
+                img1.Source = new BitmapImage(new Uri(str));
+            }
         }
     }
 }

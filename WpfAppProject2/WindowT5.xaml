@@ -48,7 +48,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBox x:Name="txtBox1" Text="Имя" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" FontSize="30"></TextBox>
+        <TextBox x:Name="txtBox1" Text="Имя" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="4" FontSize="30"></TextBox>
         <TextBox x:Name="txtBox2" Text="Фамилия" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" FontSize="24"></TextBox>
 
 
@@ -74,7 +74,10 @@
         <Button x:Name="btnBack" Grid.Column="0" Grid.Row="22"  Content="Back" FontSize="14" Click="BtnBack_Click"></Button>
         <Button x:Name="btnNext" Grid.ColumnSpan="4" Grid.Column="9" Grid.Row="22" Content="Next" FontSize="14" Click="BtnNext_Click"></Button>
         <Button x:Name="btnClose" Grid.Column="4" Grid.Row="22"  Content="Close" FontSize="14" Click="BtnClose_Click"></Button>
-        <Image Grid.ColumnSpan="2"  Height="100" Grid.RowSpan="3" Width="100" Grid.Row="2"/>
+
+        <Image x:Name="img1" Grid.ColumnSpan="2"  Height="100" Grid.RowSpan="3" Width="100" Grid.Row="2"/>
+        <Button x:Name="btnAddPic" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Content="Добавить картинку" Click="BtnAddPic_Click"></Button>
+
 
     </Grid>
 </Window>

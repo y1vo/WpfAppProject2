@@ -1,4 +1,9 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
+using System.Drawing;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +17,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 
 namespace WpfAppProject2
 {
@@ -48,5 +54,21 @@ namespace WpfAppProject2
             this.Close();
             window.Show();
         }
+
+        private void BtnAddPic_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "Image Files(*.BMP; *.JPG; *.PNG; *.JPEG)|*.BMP; *.JPG; *.PNG; *.JPEG)| All files (*.*)|*.*";
+            if (openFile.ShowDialog() == true)
+            {
+                string str = openFile.FileName;
+                img1.Source = new BitmapImage(new Uri(str));
+            }
+
+        }
     }
 }
+
+
+
+  
