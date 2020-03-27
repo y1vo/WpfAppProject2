@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,10 @@ namespace WpfAppProject2
     /// </summary>
     public partial class MainWindow : Window
     {
+        private object userChoice;
+        private ActiveStage activeStage = new ActiveStage();
+        public object UserChoice { get => userChoice; set => userChoice = value; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +35,7 @@ namespace WpfAppProject2
             WindowT1 window = new WindowT1();
             this.Close();
             window.Show();
+            userChoice = new WindowT1();
         }
 
         private void BtnT2_Click(object sender, RoutedEventArgs e)
@@ -37,6 +43,7 @@ namespace WpfAppProject2
             WindowT2 window = new WindowT2();
             this.Close();
             window.Show();
+            userChoice = new WindowT2();
         }
 
         private void BtnT3_Click(object sender, RoutedEventArgs e)
@@ -44,6 +51,7 @@ namespace WpfAppProject2
             WindowT3 window = new WindowT3();
             this.Close();
             window.Show();
+            userChoice = new WindowT3();
         }
 
         private void BtnT4_Click(object sender, RoutedEventArgs e)
@@ -51,6 +59,7 @@ namespace WpfAppProject2
             WindowT4 window = new WindowT4();
             this.Close();
             window.Show();
+            userChoice = new WindowT4();
         }
 
         private void BtnT5_Click(object sender, RoutedEventArgs e)
@@ -58,11 +67,13 @@ namespace WpfAppProject2
             WindowT5 window = new WindowT5();
             this.Close();
             window.Show();
+            userChoice = new WindowT5();
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             this.Close();
+            File.Delete(activeStage.FilePath);
         }
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)

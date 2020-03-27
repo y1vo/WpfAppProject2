@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppProject2"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="WindowT5" Height="887" Width="620">
     <Grid>
         <Grid.RowDefinitions>

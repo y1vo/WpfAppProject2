@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace WpfAppProject2
     /// </summary>
     public partial class WindowT1 : Window
     {
+        private ActiveStage activeStage = new ActiveStage(); 
         public WindowT1()
         {
             InitializeComponent();
@@ -27,13 +29,28 @@ namespace WpfAppProject2
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            Environment.Exit(0);
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow window = new MainWindow();
+            /*
+             * здесь удалются все данные с текстбоксов, закрывается текущий шаблон и открывается меню шаблонов.
+             * 
+             * так как у нас сохраняется окно которое пользователь посещял до закрытия 
+             * то при попытке начать сначала возникает конфликт с главным окном (смотреть конструктор условие if).
+             * Конфликт устранил путем удаления файла с папки. То же самое сделал и для других шаблонов.
+             */
+            this.ClearValue(TextBox.TextProperty);
             this.Close();
-            window.Show();
+
+            MainWindow mainWindow = new MainWindow();
+
+            File.Delete(activeStage.FilePath);
+            if (!File.Exists(activeStage.FilePath)) 
+            { 
+                mainWindow.Show();
+            }
         }
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
@@ -41,6 +58,11 @@ namespace WpfAppProject2
             WindowSaveInFormat window = new WindowSaveInFormat();
             this.Close();
             window.Show();
+        }
+
+        public override string ToString()
+        {
+            return "ФИО: " + txtBox1;
         }
     }
 }

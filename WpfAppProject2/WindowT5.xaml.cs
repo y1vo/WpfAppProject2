@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace WpfAppProject2
     /// </summary>
     public partial class WindowT5 : Window
     {
+        private ActiveStage activeStage = new ActiveStage();
         public WindowT5()
         {
             InitializeComponent();
@@ -31,9 +33,13 @@ namespace WpfAppProject2
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow window = new MainWindow();
+            this.ClearValue(TextBox.TextProperty);
             this.Close();
-            window.Show();
+
+            MainWindow mainWindow = new MainWindow();
+
+            File.Delete(activeStage.FilePath);
+            if (!File.Exists(activeStage.FilePath)) { mainWindow.Show(); }
         }
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
