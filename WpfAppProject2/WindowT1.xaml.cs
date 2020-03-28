@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,27 +21,55 @@ namespace WpfAppProject2
     /// </summary>
     public partial class WindowT1 : Window
     {
+        public Person person = new Person();
+        private string template = "1";
+
         public WindowT1()
         {
             InitializeComponent();
+
+            if (File.Exists(person.FilePath)) { person.ReceiveDataFromLog(); }
+            else { return; }
+        }
+
+        private void SendData()
+        {
+            person.Template = template;
+            person.Fullname = this.fullname.Text;
+            person.Birthday = this.birthday.Text;
+            person.Address = this.address.Text;
+            person.Phone = this.phone.Text;
+            person.Mail = this.mail.Text;
+            person.Aim = this.aim.Text;
+            person.Experience = this.experience.Text;
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
+        {       
+            SendData();
+            person.SaveDataToLog();
             this.Close();
+            Environment.Exit(0);
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow window = new MainWindow();
             this.Close();
-            window.Show();
+            this.Owner.Show();
+
+            /*MainWindow mainWindow = new MainWindow();*/
+
+            File.Delete(person.FilePath);
+            /*if (!File.Exists(person.FilePath))
+            {
+                mainWindow.Show();
+            }*/
         }
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
         {
             WindowSaveInFormat window = new WindowSaveInFormat();
-            this.Close();
+            window.Owner = this;
             window.Show();
         }
 
@@ -53,7 +82,6 @@ namespace WpfAppProject2
                 string str = openFile.FileName;
                 img1.Source = new BitmapImage(new Uri(str));
             }
-
         }
     }
 }
