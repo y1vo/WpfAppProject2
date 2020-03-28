@@ -40,8 +40,10 @@ namespace WpfAppProject2
         private void BtnNext_Click(object sender, RoutedEventArgs e)
         {
             WindowSaveInFormat window = new WindowSaveInFormat();
-            this.Close();
+            window.Owner = this;
             window.Show();
+           // this.Close();
+            //window.Show();
         }
 
         private void BtnAddPic_Click(object sender, RoutedEventArgs e)
@@ -53,7 +55,6 @@ namespace WpfAppProject2
                 string str = openFile.FileName;
                 img1.Source = new BitmapImage(new Uri(str));
             }
-
         }
     }
 }
