@@ -26,7 +26,8 @@ namespace WpfAppProject2
     /// </summary>
     public partial class WindowT5 : Window
     {
-        private ActiveStage activeStage = new ActiveStage();
+        public Person person = new Person();
+        private string template = "5";
         public WindowT5()
         {
             InitializeComponent();
@@ -35,23 +36,25 @@ namespace WpfAppProject2
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            this.Owner.Close();
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            this.ClearValue(TextBox.TextProperty);
+            //this.ClearValue(TextBox.TextProperty);
             this.Close();
+            this.Owner.Show();
 
-            MainWindow mainWindow = new MainWindow();
+            //MainWindow mainWindow = new MainWindow();
 
-            File.Delete(activeStage.FilePath);
-            if (!File.Exists(activeStage.FilePath)) { mainWindow.Show(); }
+            /*File.Delete(person.FilePath);
+            if (!File.Exists(person.FilePath)) {*/ //mainWindow.Show(); /*}*/
         }
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
         {
             WindowSaveInFormat window = new WindowSaveInFormat();
-            this.Close();
+            window.Owner = this;
             window.Show();
         }
 
@@ -64,11 +67,6 @@ namespace WpfAppProject2
                 string str = openFile.FileName;
                 img1.Source = new BitmapImage(new Uri(str));
             }
-
         }
     }
 }
-
-
-
-  

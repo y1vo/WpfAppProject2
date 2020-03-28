@@ -21,49 +21,56 @@ namespace WpfAppProject2
     /// </summary>
     public partial class WindowT1 : Window
     {
-        private ActiveStage activeStage = new ActiveStage();
+        public Person person = new Person();
+        private string template = "1";
+
         public WindowT1()
         {
             InitializeComponent();
+
+            if (File.Exists(person.FilePath)) { person.ReceiveDataFromLog(); }
+            else { return; }
+        }
+
+        private void SendData()
+        {
+            person.Template = template;
+            person.Fullname = this.fullname.Text;
+            person.Birthday = this.birthday.Text;
+            person.Address = this.address.Text;
+            person.Phone = this.phone.Text;
+            person.Mail = this.mail.Text;
+            person.Aim = this.aim.Text;
+            person.Experience = this.experience.Text;
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
+        {       
+            SendData();
+            person.SaveDataToLog();
             this.Close();
             Environment.Exit(0);
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            /*
-             * здесь удалются все данные с текстбоксов, закрывается текущий шаблон и открывается меню шаблонов.
-             * 
-             * так как у нас сохраняется окно которое пользователь посещял до закрытия 
-             * то при попытке начать сначала возникает конфликт с главным окном (смотреть конструктор условие if).
-             * Конфликт устранил путем удаления файла с папки. То же самое сделал и для других шаблонов.
-             */
-            this.ClearValue(TextBox.TextProperty);
             this.Close();
+            this.Owner.Show();
 
-            MainWindow mainWindow = new MainWindow();
+            /*MainWindow mainWindow = new MainWindow();*/
 
-            File.Delete(activeStage.FilePath);
-            if (!File.Exists(activeStage.FilePath))
+            File.Delete(person.FilePath);
+            /*if (!File.Exists(person.FilePath))
             {
                 mainWindow.Show();
-            }
+            }*/
         }
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
         {
             WindowSaveInFormat window = new WindowSaveInFormat();
-            this.Close();
+            window.Owner = this;
             window.Show();
-        }
-
-        public override string ToString()
-        {
-            return "ФИО: " + fullname;
         }
 
         private void BtnAddPic_Click(object sender, RoutedEventArgs e)

@@ -4,21 +4,26 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace WpfAppProject2
 {
     public class Person : Data
     {
-        private string filePath = "SaveLog.txt";
-
+        private string filePath = @"C:\Users\w4\Desktop\Exam WPF\WpfAppProject2\SaveLog.txt";
         public string FilePath { get => filePath; }
+        private string template;
+        public string Template { get => template; set => template = value; }
 
-        public void SaveTextToLog()
+        private List<string> personalData = new List<string>();
+
+        public void SaveDataToLog()
         {
             FileStream fileStream = new FileStream(filePath, FileMode.OpenOrCreate);
 
             using (StreamWriter streamWriter = new StreamWriter(fileStream))
             {
+                streamWriter.WriteLine(Template);
                 streamWriter.WriteLine(base.Fullname);
                 streamWriter.WriteLine(base.Birthday);
                 streamWriter.WriteLine(base.Address);
@@ -41,14 +46,22 @@ namespace WpfAppProject2
             }
         }
 
-        public override string ToString()
+        /* Эта часть в работе.*/
+        public void ReceiveDataFromLog()
         {
-            return "ФИО: " + base.fullname + "Birthday: " + base.birthday + "Address: " + base.address + "Phone: " + base.phone +
-                   "Mail: " + base.mail + "Aim: " + base.aim + "Age: " + base.age + "About me: " + base.aboutMe +
-                   "Achievement: " + base.achievement + "Activity: " + base.activity + "Biography: " + base.biography +
-                   "Citizenship: " + base.citizenship + "Education: " + base.education + "Experience: " + base.experience +
-                   "Language: " + base.language + "Recommendation: " + base.recommendation + "Relocation: " + base.relocation +
-                   "Salary: " + base.salary + "Skill: " + base.skill;
+            string[] items;
+            string[] separator = { "\r\n" };
+            FileStream fileStream = new FileStream(filePath, FileMode.OpenOrCreate);
+
+            using (StreamReader streamReader = new StreamReader(fileStream))
+            {
+                items = streamReader.ReadToEnd().Split(separator, StringSplitOptions.RemoveEmptyEntries);                
+            }
+
+            for (int i = 1; i < items.Length; i++)
+            {
+                personalData.Add(items[i]);
+            }
         }
     }
 }

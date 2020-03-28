@@ -8,25 +8,26 @@ namespace WpfAppProject2
 {
     public abstract class Data
     {
-        public string fullname;
-        public string address;
-        public string mail;
-        public string phone;
-        public string aim;
-        public string experience;
-        public string activity;
-        public string achievement;
-        public string biography;
-        public string education;
-        public string recommendation;
-        public string age;
-        public string language;
-        public string skill;
-        public string aboutMe;
-        public string salary;
-        public string birthday;
-        public string citizenship;
-        public string relocation;
+        private string fullname;
+        private string address;
+        private string mail;
+        private string phone;
+        private string aim;
+        private string experience;
+        private string activity;
+        private string achievement;
+        private string biography;
+        private string education;
+        private string recommendation;
+        private string age;
+        private string language;
+        private string skill;
+        private string aboutMe;
+        private string salary;
+        private string birthday;
+        private string citizenship;
+        private string relocation;
+        private string pictureFilePath;
 
         public string Fullname { get => fullname; set => fullname = value; }
         public string Address { get => address; set => address = value; }
@@ -47,5 +48,6 @@ namespace WpfAppProject2
         public string Birthday { get => birthday; set => birthday = value; }
         public string Citizenship { get => citizenship; set => citizenship = value; }
         public string Relocation { get => relocation; set => relocation = value; }
+        public string PictureFilePath { get => pictureFilePath; set => pictureFilePath = value; }
     }
 }
