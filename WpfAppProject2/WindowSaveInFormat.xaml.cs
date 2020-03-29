@@ -26,11 +26,13 @@ namespace WpfAppProject2
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            /* здесь нужно на последнее открытое окно переходить
-            WindowSaveInFormat window = new WindowSaveInFormat();
             this.Close();
-            window.Show();
-            */
+            this.Owner.Show();
+        }
+
+        private void BtnPdf_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
