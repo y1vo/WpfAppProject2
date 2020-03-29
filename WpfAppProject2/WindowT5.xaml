@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppProject2"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="WindowT5" Height="887" Width="620">
-    <Grid>
+    <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -47,35 +48,36 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBox x:Name="txtBox1" Text="Имя" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="4" FontSize="30"></TextBox>
-        <TextBox x:Name="txtBox2" Text="Фамилия" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" FontSize="24"></TextBox>
+        <TextBox x:Name="firstname" Text="Имя" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="4" FontSize="30"></TextBox>
+        <TextBox x:Name="lastname" Text="Фамилия" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" FontSize="24"></TextBox>
 
 
-        <TextBox x:Name="txtBox4" Text="Адрес" Grid.Column="5" Grid.Row="2" Grid.ColumnSpan="4" FontSize="24"></TextBox>
-        <TextBox x:Name="txtBox5" Text="Телефон" Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="4" FontSize="24"></TextBox>
-        <TextBox x:Name="txtBox6" Text="E-mail" Grid.Column="5" Grid.Row="4" Grid.ColumnSpan="4" FontSize="24"></TextBox>
+        <TextBox x:Name="address" Text="Адрес" Grid.Column="5" Grid.Row="2" Grid.ColumnSpan="4" FontSize="24"></TextBox>
+        <TextBox x:Name="phone" Text="Телефон" Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="4" FontSize="24"></TextBox>
+        <TextBox x:Name="mail" Text="E-mail" Grid.Column="5" Grid.Row="4" Grid.ColumnSpan="4" FontSize="24"></TextBox>
 
 
         <TextBlock Text="ЦЕЛЬ:" Grid.Column="0" Grid.Row="5"></TextBlock>
-        <TextBox x:Name="txtBox7" Text="Имя и Фамилия" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="9" Grid.RowSpan="4" FontSize="16"></TextBox>
+        <TextBox x:Name="aim" Text="" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="9" Grid.RowSpan="4" FontSize="16"></TextBox>
 
         <TextBlock Text="ОБРАЗОВАНИЕ:" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2"></TextBlock>
-        <TextBox x:Name="txtBox8" Text="Имя и Фамилия" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="6" Grid.RowSpan="4" FontSize="16"></TextBox>
+        <TextBox x:Name="education" Text="" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="6" Grid.RowSpan="4" FontSize="16"></TextBox>
 
         <TextBlock Text="ОПЫТ РАБОТЫ:" Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="2"></TextBlock>
-        <TextBox x:Name="txtBox9" Text="Имя и Фамилия" Grid.Column="2" Grid.Row="13" Grid.ColumnSpan="6" Grid.RowSpan="4" FontSize="16"></TextBox>
+        <TextBox x:Name="experience" Text="" Grid.Column="2" Grid.Row="13" Grid.ColumnSpan="6" Grid.RowSpan="4" FontSize="16"></TextBox>
 
         <TextBlock Text="НАВЫКИ:" Grid.Column="0" Grid.Row="17"></TextBlock>
-        <TextBox x:Name="txtBox10" Text="Имя и Фамилия" Grid.Column="2" Grid.Row="17" Grid.ColumnSpan="6" Grid.RowSpan="3" FontSize="16"></TextBox>
+        <TextBox x:Name="skill" Text="" Grid.Column="2" Grid.Row="17" Grid.ColumnSpan="6" Grid.RowSpan="3" FontSize="16"></TextBox>
 
         <TextBlock Text="ДЕЯТЕЛЬНОСТЬ:" Grid.Column="0" Grid.Row="20" Grid.ColumnSpan="2"></TextBlock>
-        <TextBox x:Name="txtBox11" Text="Имя и Фамилия" Grid.Column="2" Grid.Row="20" Grid.ColumnSpan="6" Grid.RowSpan="2" FontSize="16"></TextBox>
-        <Button x:Name="btnBack" Grid.Column="0" Grid.Row="22"  Content="Back" FontSize="14" Click="BtnBack_Click"></Button>
-        <Button x:Name="btnNext" Grid.ColumnSpan="4" Grid.Column="9" Grid.Row="22" Content="Next" FontSize="14" Click="BtnNext_Click"></Button>
-        <Button x:Name="btnClose" Grid.Column="4" Grid.Row="22"  Content="Close" FontSize="14" Click="BtnClose_Click"></Button>
+        <TextBox x:Name="activity" Text="" Grid.Column="2" Grid.Row="20" Grid.ColumnSpan="6" Grid.RowSpan="2" FontSize="16"></TextBox>
+
+        <Button x:Name="btnBack" Grid.Column="0" Grid.Row="22"  Content="Back" FontSize="14" Click="BtnBack_Click" Background="DarkSeaGreen"></Button>
+        <Button x:Name="btnNext" Grid.ColumnSpan="4" Grid.Column="9" Grid.Row="22" Content="Next" FontSize="14" Click="BtnNext_Click" Background="DarkSeaGreen"></Button>
+        <Button x:Name="btnClose" Grid.Column="4" Grid.Row="22"  Content="Close" FontSize="14" Click="BtnClose_Click" Background="DarkSeaGreen"></Button>
 
         <Image x:Name="img1" Grid.ColumnSpan="2"  Height="100" Grid.RowSpan="3" Width="100" Grid.Row="2"/>
-        <Button x:Name="btnAddPic" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Content="Добавить картинку" Click="BtnAddPic_Click"></Button>
+        <Button x:Name="btnAddPic" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Content="Добавить картинку" Click="BtnAddPic_Click" Background="DarkSeaGreen"></Button>
 
 
     </Grid>

@@ -32,5 +32,10 @@ namespace WpfAppProject2
             window.Show();
             */
         }
+
+        private void BtnPdf_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

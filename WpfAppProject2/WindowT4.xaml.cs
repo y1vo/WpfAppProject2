@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace WpfAppProject2
     /// </summary>
     public partial class WindowT4 : Window
     {
+        public Person person = new Person();
+        private string template = "4";
         public WindowT4()
         {
             InitializeComponent();
@@ -28,19 +31,25 @@ namespace WpfAppProject2
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            this.Owner.Close();
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow window = new MainWindow();
+            //this.ClearValue(TextBox.TextProperty);
             this.Close();
-            window.Show();
+            this.Owner.Show();
+
+            //MainWindow mainWindow = new MainWindow();
+
+            /*File.Delete(activeStage.FilePath);
+            if (!File.Exists(activeStage.FilePath)) {*/ //mainWindow.Show(); /*}*/
         }
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
         {
             WindowSaveInFormat window = new WindowSaveInFormat();
-            this.Close();
+            window.Owner = this;
             window.Show();
         }
         private void BtnAddPic_Click(object sender, RoutedEventArgs e)
@@ -52,7 +61,6 @@ namespace WpfAppProject2
                 string str = openFile.FileName;
                 img1.Source = new BitmapImage(new Uri(str));
             }
-
         }
     }
 }
