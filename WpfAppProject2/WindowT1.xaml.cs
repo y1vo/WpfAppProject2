@@ -84,6 +84,7 @@ namespace WpfAppProject2
             WindowSaveInFormat window = new WindowSaveInFormat();
             window.Owner = this;
             window.Show();
+            this.Visibility = Visibility.Hidden;
         }
 
         private void BtnAddPic_Click(object sender, RoutedEventArgs e)
