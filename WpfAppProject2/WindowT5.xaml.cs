@@ -63,11 +63,10 @@ namespace WpfAppProject2
             }
             if (!string.IsNullOrEmpty(person.PersonalData[1]))
             {
-                const int size = 2;
-                string[] splitFullName = new string[size];
+                string[] splitFullName = new string[2];
                 splitFullName = person.PersonalData[1].Split(' ');
                 if (!string.IsNullOrEmpty(splitFullName[0])) firstname.Text = splitFullName[0];
-                if (!string.IsNullOrEmpty(splitFullName[1]) && size == splitFullName.Length) lastname.Text = splitFullName[1];
+                if (splitFullName.Length == 2 && !string.IsNullOrEmpty(splitFullName[1])) lastname.Text = splitFullName[1];
             }
             if (!string.IsNullOrEmpty(person.PersonalData[3])) this.address.Text = person.PersonalData[3];
             if (!string.IsNullOrEmpty(person.PersonalData[4])) this.phone.Text = person.PersonalData[4];
