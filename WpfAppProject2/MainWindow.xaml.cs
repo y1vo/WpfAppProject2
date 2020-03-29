@@ -22,7 +22,12 @@ namespace WpfAppProject2
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Person person = new Person();
+        private Person person = new Person();
+        private WindowT1 windowT1 = new WindowT1();
+        private WindowT2 windowT2 = new WindowT2();
+        private WindowT3 windowT3 = new WindowT3();
+        private WindowT4 windowT4 = new WindowT4();
+        private WindowT5 windowT5 = new WindowT5();
 
         public MainWindow()
         {
@@ -38,54 +43,49 @@ namespace WpfAppProject2
 
         private void ReceiveData()
         {
-            string templateNumber = File.ReadAllText(person.FilePath);
+            string log = File.ReadAllText(person.FilePath);
 
-            if (templateNumber.Contains("1"))
-            {
-                WindowT1 windowT1 = new WindowT1();
-                windowT1.Show();
-            }
+            if (log.StartsWith("1")) { windowT1.Show(); }
+            else if (log.StartsWith("2")) { windowT2.Show(); }
+            else if (log.StartsWith("3")) { windowT3.Show(); }
+            else if (log.StartsWith("4")) { windowT4.Show(); }
+            else if (log.StartsWith("5")) { windowT5.Show(); }
 
             this.Visibility = Visibility.Hidden;
         }
 
         private void BtnT1_Click(object sender, RoutedEventArgs e)
         {
-            WindowT1 window = new WindowT1();
-            window.Owner = this;
-            window.Show();
+            windowT1.Owner = this;
+            windowT1.Show();
             this.Visibility = Visibility.Hidden;
         }
 
         private void BtnT2_Click(object sender, RoutedEventArgs e)
         {
-            WindowT2 window = new WindowT2();
-            window.Owner = this;
-            window.Show();
+            windowT2.Owner = this;
+            windowT2.Show();
             this.Visibility = Visibility.Hidden;
         }
 
         private void BtnT3_Click(object sender, RoutedEventArgs e)
         {
-            WindowT3 window = new WindowT3();
-            window.Owner = this;
-            window.Show();
+            windowT3.Owner = this;
+            windowT3.Show();
             this.Visibility = Visibility.Hidden;
         }
 
         private void BtnT4_Click(object sender, RoutedEventArgs e)
         {
-            WindowT4 window = new WindowT4();
-            window.Owner = this;
-            window.Show();
+            windowT4.Owner = this;
+            windowT4.Show();
             this.Visibility = Visibility.Hidden;
         }
 
         private void BtnT5_Click(object sender, RoutedEventArgs e)
         {
-            WindowT5 window = new WindowT5();
-            window.Owner = this;
-            window.Show();
+            windowT5.Owner = this;
+            windowT5.Show();
             this.Visibility = Visibility.Hidden;
         }
 
@@ -94,6 +94,8 @@ namespace WpfAppProject2
             this.Close();
 
             if (File.Exists(person.FilePath)) { File.Delete(person.FilePath); }
+
+            Environment.Exit(0);
         }
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)

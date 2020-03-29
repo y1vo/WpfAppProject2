@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfAppProject2"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="WindowT3" Height="887" Width="620">
+        Title="Комбинированное резюме" Height="887" Width="620">
     <Grid ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>

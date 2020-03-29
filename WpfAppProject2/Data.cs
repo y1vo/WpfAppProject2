@@ -8,7 +8,10 @@ namespace WpfAppProject2
 {
     public abstract class Data
     {
-        private string fullname;
+        private List<string> personalData = new List<string>();
+        private string filePath = @"C:\Users\w4\Desktop\Exam WPF\WpfAppProject2\SaveLog.txt";
+        private string template;
+        private string fullName;
         private string address;
         private string mail;
         private string phone;
@@ -28,8 +31,13 @@ namespace WpfAppProject2
         private string citizenship;
         private string relocation;
         private string pictureFilePath;
-
-        public string Fullname { get => fullname; set => fullname = value; }
+        private string position;
+        private string course;
+        
+        public List<string> PersonalData { get => personalData; set => personalData = value; }
+        public string FilePath { get => filePath; }
+        public string Template { get => template; set => template = value; }
+        public string FullName { get => fullName; set => fullName = value; }
         public string Address { get => address; set => address = value; }
         public string Mail { get => mail; set => mail = value; }
         public string Phone { get => phone; set => phone = value; }
@@ -49,5 +57,7 @@ namespace WpfAppProject2
         public string Citizenship { get => citizenship; set => citizenship = value; }
         public string Relocation { get => relocation; set => relocation = value; }
         public string PictureFilePath { get => pictureFilePath; set => pictureFilePath = value; }
+        public string Position { get => position; set => position = value; }
+        public string Course { get => course; set => course = value; }
     }
 }
