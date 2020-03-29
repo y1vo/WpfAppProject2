@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="WindowT3" Height="887" Width="620">
-    <Grid ShowGridLines="False">
+    <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -53,17 +53,17 @@
         <TextBox x:Name="address" Text="Адрес проживания" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="3"  FontSize="20"/>
         <TextBlock Text="Возраст" Grid.ColumnSpan="3" Grid.Column="7" Grid.Row="1"></TextBlock>
 
-        <TextBox x:Name="age" Text="Возраст" Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="3"  FontSize="18"></TextBox>
+        <TextBox x:Name="age" Text="" Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="3"  FontSize="18"></TextBox>
 
         <TextBlock Text="ОПЫТ РАБОТЫ" Grid.ColumnSpan="3" Grid.Column="4" Grid.Row="3"></TextBlock>
-        <TextBox x:Name="experience" Text="ОПЫТ РАБОТЫ" Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="5" Grid.RowSpan="7" FontSize="18"></TextBox>
+        <TextBox x:Name="experience" Text="" Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="5" Grid.RowSpan="7" FontSize="18"></TextBox>
 
         <TextBlock Text="ОБРАЗОВАНИЕ" Grid.ColumnSpan="3" Grid.Column="4" Grid.Row="11"></TextBlock>
-        <TextBox x:Name="education" Text="Образование" Grid.Column="4" Grid.Row="12" Grid.ColumnSpan="5" Grid.RowSpan="4" FontSize="18"></TextBox>
+        <TextBox x:Name="education" Text="" Grid.Column="4" Grid.Row="12" Grid.ColumnSpan="5" Grid.RowSpan="4" FontSize="18"></TextBox>
 
 
         <TextBlock Text="КУРСЫ" Grid.ColumnSpan="3" Grid.Column="4" Grid.Row="16"></TextBlock>
-        <TextBox x:Name="course" Text="Образование" Grid.Column="4" Grid.Row="17" Grid.ColumnSpan="5" Grid.RowSpan="4" FontSize="18"></TextBox>
+        <TextBox x:Name="course" Grid.Column="4" Grid.Row="17" Grid.ColumnSpan="5" Grid.RowSpan="4" FontSize="18"/>
 
 
         <!--<Label Content="О СЕБЕ" Grid.ColumnSpan="3" Grid.Column="4" Grid.Row="3"></Label>-->
@@ -73,20 +73,20 @@
         <TextBox x:Name="mail" Text="E-mail" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" FontSize="18"></TextBox>
 
         <TextBlock Text="ЯЗЫКИ" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="6"></TextBlock>
-        <TextBox x:Name="language" Text="E-mail" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3" Grid.RowSpan="3" FontSize="18"></TextBox>
+        <TextBox x:Name="language" Text="" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3" Grid.RowSpan="3" FontSize="18"></TextBox>
 
         <TextBlock Text="НАВЫКИ" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="10"></TextBlock>
-        <TextBox x:Name="skill" Text="E-mail" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="3" Grid.RowSpan="7" FontSize="18"></TextBox>
+        <TextBox x:Name="skill" Text="" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="3" Grid.RowSpan="7" FontSize="18"></TextBox>
 
         <TextBlock Text="О СЕБЕ" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="18"></TextBlock>
-        <TextBox x:Name="aboutMe" Text="E-mail" Grid.Column="0" Grid.Row="19" Grid.ColumnSpan="3" Grid.RowSpan="3" FontSize="18"></TextBox>
+        <TextBox x:Name="aboutMe" Text="" Grid.Column="0" Grid.Row="19" Grid.ColumnSpan="3" Grid.RowSpan="3" FontSize="18"></TextBox>
 
 
-        <Button x:Name="btnBack" Grid.Column="0" Grid.Row="22"  Content="Back" FontSize="14" Click="BtnBack_Click"></Button>
-        <Button x:Name="btnNext" Grid.ColumnSpan="4" Grid.Column="9" Grid.Row="22" Content="Next" FontSize="14" Click="BtnNext_Click"></Button>
-        <Button x:Name="btnClose" Grid.Column="4" Grid.Row="22"  Content="Close" FontSize="14" Click="BtnClose_Click"></Button>
+        <Button x:Name="btnBack" Grid.Column="0" Grid.Row="22"  Content="Back" FontSize="14" Click="BtnBack_Click" Background="DarkSeaGreen"></Button>
+        <Button x:Name="btnNext" Grid.ColumnSpan="4" Grid.Column="9" Grid.Row="22" Content="Next" FontSize="14" Click="BtnNext_Click" Background="DarkSeaGreen"></Button>
+        <Button x:Name="btnClose" Grid.Column="4" Grid.Row="22"  Content="Close" FontSize="14" Click="BtnClose_Click" Background="DarkSeaGreen"></Button>
 
         <Image x:Name="img1" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3" Width="100"></Image>
-        <Button  x:Name="btnAddPic" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Content="Добавить картинку" Click="BtnAddPic_Click"></Button>
+        <Button  x:Name="btnAddPic" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Content="Добавить картинку" Click="BtnAddPic_Click" Background="IndianRed"></Button>
     </Grid>
 </Window>

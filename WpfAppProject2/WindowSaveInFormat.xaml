@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppProject2"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"
         Title="WindowSaveInFormat" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -29,7 +28,7 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="Сохранить резюме как?" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3 " FontSize="30" HorizontalContentAlignment="Center"></Label>
-        <Button x:Name="btnPdf" Grid.Column="0" Grid.Row="2" Content="pdf" FontSize="20"></Button>
+        <Button x:Name="btnPdf" Grid.Column="0" Grid.Row="2" Content="pdf" FontSize="20" Click="BtnPdf_Click"></Button>
         <Button x:Name="btnDoc" Grid.Column="2" Grid.Row="2" Content="doc" FontSize="20"></Button>
         <Button x:Name="btnDocx" Grid.Column="4" Grid.Row="2" Content="docx" FontSize="20"></Button>
         <Button x:Name="btnCancel" Grid.Column="2" Grid.Row="4" Content="Отмена" FontSize="20"></Button>
